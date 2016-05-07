@@ -46,7 +46,4 @@
 
     <color name="dynamic_grid_preview_background">#FFFFFFFF</color>
     <color name="dynamic_grid_preview_foreground">#FF000000</color>
-
-    <color name="workspace_edge_effect_color">#FFFFFFFF</color>
-    <color name="folder_edge_effect_color">#FF757575</color>
 </resources>
