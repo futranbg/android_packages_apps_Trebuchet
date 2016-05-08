@@ -188,6 +188,7 @@ public class LauncherModel extends BroadcastReceiver {
                         ArrayList<AppInfo> appInfos);
         public void bindPackagesUpdated(ArrayList<Object> widgetsAndShortcuts);
         public void bindSearchablesChanged();
+ 	public boolean isAllAppsButtonRank(int rank);
         public void onPageBoundSynchronously(int page);
         public void dumpLogsToLocalData();
     }
@@ -1037,7 +1038,7 @@ public class LauncherModel extends BroadcastReceiver {
      * Add an all apps shortcut to the database if there aren't any already
      */
     private ItemInfo addAllAppsShortcutIfNecessary() {
-        if (hasAllAppsShortcut()) return null;
+        if (hasAllAppsShortcut() && LauncherAppState.isDisableAllApps()) return null;
 
         DeviceProfile grid = mApp.getDynamicGrid().getDeviceProfile();
         int allAppsIndex = grid.hotseatAllAppsRank;
@@ -1718,7 +1719,8 @@ public class LauncherModel extends BroadcastReceiver {
             long containerIndex = item.screenId;
             if (item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
                 // Return early if we detect that an item is under the hotseat button
-                if (mCallbacks == null) {
+                    if (mCallbacks == null ||
+                        mCallbacks.get().isAllAppsButtonRank((int) item.screenId)) {
                     deleteOnInvalidPlacement.set(true);
                     Log.e(TAG, "Error loading shortcut into hotseat " + item
                             + " into position (" + item.screenId + ":" + item.cellX + ","
@@ -2141,19 +2143,6 @@ public class LauncherModel extends BroadcastReceiver {
                 if (mStopped) {
                     clearSBgDataStructures();
                     return false;
-                }
-
-                // Add an all apps button to the database if there isn't one already
-                ItemInfo allAppsButton = addAllAppsShortcutIfNecessary();
-                if (allAppsButton != null) {
-                    // Check if there was an icon occupying the default position and remove
-                    if (occupied.containsKey(allAppsButton.container)) {
-                        if (occupied.get(allAppsButton.container)
-                                [(int) allAppsButton.screenId][0] != null) {
-                            itemsToRemove.add(occupied.get(allAppsButton.container)
-                                    [(int) allAppsButton.screenId][0].id);
-                        }
-                    }
                 }
 
                 if (itemsToRemove.size() > 0) {

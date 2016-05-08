@@ -95,6 +95,14 @@ public class Hotseat extends FrameLayout {
         return hasVerticalHotseat() ? (mContent.getCountY() - (rank + 1)) : 0;
     }
 
+    public boolean isAllAppsButtonRank(int rank) {
+        if (LauncherAppState.isDisableAllApps()) {
+            return false;
+        } else {
+            return rank == mAllAppsButtonRank;
+        }
+    }
+
     /** This returns the coordinates of an app in a given cell, relative to the DragLayer */
     Rect getCellCoordinates(int cellX, int cellY) {
         Rect coords = new Rect();
