@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.android.launcher3.AppsCustomizePagedView;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Launcher;
+import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.OverviewSettingsPanel;
 import com.android.launcher3.R;
 import com.android.launcher3.settings.SettingsProvider;
@@ -147,6 +148,12 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                                 R.bool.preferences_interface_drawer_hide_icon_labels_default);
                         state = current ? res.getString(R.string.icon_labels_hide)
                                 : res.getString(R.string.icon_labels_show);
+                        ((TextView) v.findViewById(R.id.item_state)).setText(state);
+                        break;
+                    case 3:
+                        current = LauncherAppState.isDisableAllApps();
+                        state = current ? res.getString(R.string.setting_state_on)
+                                : res.getString(R.string.setting_state_off);
                         ((TextView) v.findViewById(R.id.item_state)).setText(state);
                         break;
                     default:
@@ -325,6 +332,12 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             onIconLabelsBooleanChanged(v,
                                     SettingsProvider.SETTINGS_UI_DRAWER_HIDE_ICON_LABELS,
                                     R.bool.preferences_interface_drawer_hide_icon_labels_default);
+                            mLauncher.setUpdateDynamicGrid();
+                            break;
+			case 3:
+                            onSettingsBooleanChanged(v,
+                                    SettingsProvider.SETTINGS_UI_NO_DRAWER,
+                                    R.bool.preferences_settings_ui_no_drawer_default);
                             mLauncher.setUpdateDynamicGrid();
                             break;
                     }

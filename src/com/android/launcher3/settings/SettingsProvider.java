@@ -42,6 +42,7 @@ public final class SettingsProvider {
     public static final String SETTINGS_UI_DRAWER_HIDE_ICON_LABELS = "ui_drawer_hide_icon_labels";
     public static final String SETTINGS_UI_GENERAL_ICONS_LARGE = "ui_general_icons_large";
     public static final String SETTINGS_UI_DRAWER_SORT_MODE = "ui_drawer_sort_mode";
+    public static final String SETTINGS_UI_NO_DRAWER = "ui_no_drawer";
 
     public static final String SETTINGS_HOME_LAST_APP = "home_last_app";
 
@@ -87,5 +88,11 @@ public final class SettingsProvider {
 
     public static void putInt(Context context, String key, int value) {
         get(context).edit().putInt(key, value).commit();
+    }
+    public static boolean getAppBoolean(Context context, String key, boolean defaultValue) {
+        return get(context).getBoolean(key, defaultValue);
+    }
+    public static void putAppBoolean(Context context, String key, boolean value) {
+        get(context).edit().putBoolean(key, value).commit();
     }
 }
