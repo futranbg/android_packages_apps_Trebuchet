@@ -20,5 +20,6 @@
 <resources>
     <style name="Theme" parent="@android:style/Theme.DeviceDefault.Wallpaper.NoTitleBar">
         <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>
