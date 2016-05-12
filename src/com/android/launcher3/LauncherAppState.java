@@ -141,8 +141,7 @@ public class LauncherAppState implements DeviceProfile.DeviceProfileCallbacks {
         public void onChange(boolean selfChange) {
             // If the database has ever changed, then we really need to force a reload of the
             // workspace on the next load
-            mModel.resetLoadedState(false, true);
-            mModel.startLoaderFromBackground();
+		reloadWorkspace();
         }
     };
 
@@ -237,6 +236,15 @@ public class LauncherAppState implements DeviceProfile.DeviceProfileCallbacks {
     @Override
     public void onAvailableSizeChanged(DeviceProfile grid) {
         Utilities.setIconSize(grid.iconSizePx);
+    }
+
+    /**
+     * Reloads the workspace items from the DB and re-binds the workspace. This should generally
+     * not be called as DB updates are automatically followed by UI update
+     */
+    public void reloadWorkspace() {
+        mModel.resetLoadedState(false, true);
+        mModel.startLoaderFromBackground();
     }
 
     public static boolean isDisableAllApps() {

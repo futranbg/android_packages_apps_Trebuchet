@@ -1349,8 +1349,7 @@ public class Launcher extends Activity
         try {
             startActivity(chooser);
         } catch (ActivityNotFoundException e) {
-            Intent settings = new Intent().setClassName(OverviewSettingsPanel.ANDROID_SETTINGS,
-                    OverviewSettingsPanel.THEME_SETTINGS);
+            Intent settings = new Intent().setClassName(OverviewSettingsPanel.ANDROID_SETTINGS, OverviewSettingsPanel.THEME_SETTINGS);
             startActivity(settings);
         }
 
@@ -2745,9 +2744,8 @@ public class Launcher extends Activity
     }
 
     protected void startWallpaper() {
-        final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
-        pickWallpaper.setComponent(getWallpaperPickerComponent());
-        startActivityForResult(pickWallpaper, REQUEST_PICK_WALLPAPER);
+        startActivityForResult(new Intent(Intent.ACTION_SET_WALLPAPER).setPackage(getPackageName()),
+                REQUEST_PICK_WALLPAPER);
     }
 
     protected ComponentName getWallpaperPickerComponent() {

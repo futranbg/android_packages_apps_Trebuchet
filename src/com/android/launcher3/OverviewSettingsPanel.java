@@ -19,7 +19,7 @@ public class OverviewSettingsPanel {
     public static final String ANDROID_PROTECTED_APPS =
             "com.android.settings.applications.ProtectedAppsActivity";
     public static final String THEME_SETTINGS =
-            "org.cyanogenmod.theme.chooser.ChooserActivity";
+            "cyanogenmod.intent.category.APP_THEMES";
     public static final String THEME_CHOOSER_CATEGORY = "cyngn.intent.category.APP_THEMES";
     public static final int HOME_SETTINGS_POSITION = 0;
     public static final int DRAWER_SETTINGS_POSITION = 1;

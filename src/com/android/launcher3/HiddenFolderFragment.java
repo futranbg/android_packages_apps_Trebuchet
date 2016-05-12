@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.android.launcher3.LauncherAppState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,7 @@ public class HiddenFolderFragment extends Fragment {
 
     private boolean mAuth = false;
     private boolean mSent = false;
+    LauncherAppState appState = LauncherAppState.getInstanceNoCreate();
 
     private OnClickListener mClicklistener = new OnClickListener() {
         @Override
@@ -161,6 +163,8 @@ public class HiddenFolderFragment extends Fragment {
         mAppEntries.remove(app);
         mAppsAdapter.remove(app);
         mAppsAdapter.notifyDataSetInvalidated();
+	// Add icon for the removed app
+	if(LauncherAppState.isDisableAllApps()) appState.reloadWorkspace();
     }
 
     public void saveHiddenFolderStatus(int position) {

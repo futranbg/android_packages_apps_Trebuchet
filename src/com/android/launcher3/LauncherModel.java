@@ -1688,7 +1688,7 @@ public class LauncherModel extends BroadcastReceiver {
             }
         }
 
-        private void verifyApplications() {
+        public void verifyApplications() {
             final Context context = mApp.getContext();
 
             // Cross reference all the applications in our apps list with items in the workspace
