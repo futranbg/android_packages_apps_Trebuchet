@@ -71,16 +71,16 @@
                     android:layout_centerHorizontal="true" />
 
                 <TextView
-                    android:id="@+id/themes_button"
+                    android:id="@+id/setting_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="4dp"
-                    android:drawableTop="@drawable/themes_button"
+                    android:drawableTop="@drawable/setting_button"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_horizontal"
                     android:paddingLeft="@dimen/overview_panel_button_spacing"
                     android:paddingRight="@dimen/overview_panel_button_spacing"
-                    android:text="@string/themes_button_text"
+                    android:text="@string/setting_button_text"
                     android:textAllCaps="true"
                     android:textSize="12sp"
                     android:textColor="@android:color/white"

@@ -1341,23 +1341,11 @@ public class Launcher extends Activity
         public void onScrollProgressChanged(float progress);
     }
 
-    protected void startThemeSettings() {
-        Intent chooser = new Intent(Intent.ACTION_MAIN)
-                .addCategory(OverviewSettingsPanel.THEME_CHOOSER_CATEGORY)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        try {
-            startActivity(chooser);
-        } catch (ActivityNotFoundException e) {
-            Intent settings = new Intent().setClassName(OverviewSettingsPanel.ANDROID_SETTINGS, OverviewSettingsPanel.THEME_SETTINGS);
-            startActivity(settings);
-        }
-
-        if (mWorkspace.isInOverviewMode()) {
-            mWorkspace.exitOverviewMode(false);
-        } else if (mAppsCustomizeContent.isInOverviewMode()) {
-            mAppsCustomizeContent.exitOverviewMode(false);
-        }
+    protected void startSettings() {
+    	// Launch LauncherSettingsActivity
+    	Intent intent = new Intent();
+        intent.setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings"));
+        startActivity(intent);
     }
 
     public void onClickSortModeButton(View v) {
@@ -1553,9 +1541,6 @@ public class Launcher extends Activity
 
     protected boolean hasSettings() {
         return false;
-    }
-
-    protected void startSettings() {
     }
 
     public interface QSBScroller {
@@ -3078,18 +3063,7 @@ public class Launcher extends Activity
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         try {
-            // Only launch using the new animation if the shortcut has not opted out (this is a
-            // private contract between launcher and may be ignored in the future).
-            boolean useLaunchAnimation = (v != null) &&
-                    !intent.hasExtra(INTENT_EXTRA_IGNORE_LAUNCH_ANIMATION);
-            if (useLaunchAnimation) {
-                ActivityOptions opts = ActivityOptions.makeScaleUpAnimation(v, 0, 0,
-                        v.getMeasuredWidth(), v.getMeasuredHeight());
-
-                startActivity(intent, opts.toBundle());
-            } else {
                 startActivity(intent);
-            }
             return true;
         } catch (SecurityException e) {
             Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();

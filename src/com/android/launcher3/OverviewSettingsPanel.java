@@ -125,12 +125,12 @@ public class OverviewSettingsPanel {
         });
         wallpaperButton.setOnTouchListener(mLauncher.getHapticFeedbackTouchListener());
 
-        View themesButton = mLauncher.findViewById(R.id.themes_button);
+        View themesButton = mLauncher.findViewById(R.id.setting_button);
         themesButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if (!mLauncher.getWorkspace().isSwitchingState()) {
-                    mLauncher.startThemeSettings();
+                    mLauncher.startSettings();
                 }
             }
         });
