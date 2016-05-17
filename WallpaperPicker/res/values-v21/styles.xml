@@ -35,6 +35,7 @@
 
     <style name="Theme" parent="@style/BaseWallpaperTheme">
 	<item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:colorControlActivated">@color/launcher_accent_color</item>
         <item name="android:colorAccent">@color/launcher_accent_color</item>
         <item name="android:colorPrimary">@color/launcher_accent_color</item>
