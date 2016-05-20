@@ -85,7 +85,7 @@
         android:requiredForAllUsers="true"
         android:supportsRtl="true">
         <activity
-            android:name="org.cyanogenmod.trebuchet.CustomHomeLauncher"
+            android:name="org.xos.tekhome.CustomHomeLauncher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"

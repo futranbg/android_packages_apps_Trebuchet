@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.trebuchet.home;
+package org.xos.tekhome.home;
 
 import android.content.Context;
 import android.util.Base64;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.trebuchet;
+package org.xos.tekhome;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -35,8 +35,8 @@ import com.android.launcher.home.Home;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 
-import org.cyanogenmod.trebuchet.home.HomeUtils;
-import org.cyanogenmod.trebuchet.home.HomeWrapper;
+import org.xos.tekhome.home.HomeUtils;
+import org.xos.tekhome.home.HomeWrapper;
 
 import java.lang.Override;
 
