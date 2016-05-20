@@ -104,54 +104,20 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                         ((TextView) v.findViewById(R.id.item_state)).setText(state);
                         break;
                     case 1:
-                        updateSearchPanelItem(v);
-                        break;
-                    case 2:
                         state = mLauncher.getWorkspaceTransitionEffect();
                         state = mapEffectToValue(state);
                         ((TextView) v.findViewById(R.id.item_state)).setText(state);
                         break;
-                    case 3:
+                    case 2:
                         current = mLauncher.shouldHideWorkspaceIconLables();
                         state = current ? res.getString(R.string.icon_labels_hide)
                                 : res.getString(R.string.icon_labels_show);
                         ((TextView) v.findViewById(R.id.item_state)).setText(state);
                         break;
-                    case 4:
+                    case 3:
                         current = SettingsProvider.getBoolean(mContext,
                                 SettingsProvider.SETTINGS_UI_HOMESCREEN_SCROLLING_WALLPAPER_SCROLL,
                                 R.bool.preferences_interface_homescreen_scrolling_wallpaper_scroll_default);
-                        state = current ? res.getString(R.string.setting_state_on)
-                                : res.getString(R.string.setting_state_off);
-                        ((TextView) v.findViewById(R.id.item_state)).setText(state);
-                        break;
-                    case 5:
-                        updateDynamicGridSizeSettingsItem(v);
-                        break;
-                    default:
-                        ((TextView) v.findViewById(R.id.item_state)).setText("");
-                }
-                break;
-            case OverviewSettingsPanel.DRAWER_SETTINGS_POSITION:
-                switch (position) {
-                    case 0:
-                        state = mLauncher.getAppsCustomizeTransitionEffect();
-                        state = mapEffectToValue(state);
-                        ((TextView) v.findViewById(R.id.item_state)).setText(state);
-                        break;
-                    case 1:
-                        updateDrawerSortSettingsItem(v);
-                        break;
-                    case 2:
-                        current = SettingsProvider.getBoolean(mContext,
-                                SettingsProvider.SETTINGS_UI_DRAWER_HIDE_ICON_LABELS,
-                                R.bool.preferences_interface_drawer_hide_icon_labels_default);
-                        state = current ? res.getString(R.string.icon_labels_hide)
-                                : res.getString(R.string.icon_labels_show);
-                        ((TextView) v.findViewById(R.id.item_state)).setText(state);
-                        break;
-                    case 3:
-                        current = LauncherAppState.isDisableAllApps();
                         state = current ? res.getString(R.string.setting_state_on)
                                 : res.getString(R.string.setting_state_off);
                         ((TextView) v.findViewById(R.id.item_state)).setText(state);
@@ -292,56 +258,22 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             mLauncher.setUpdateDynamicGrid();
                             break;
                         case 1:
-                            onClickSearchPanelButton();
-                            boolean customContentEnabled = mLauncher.getCustomContentMode()
-                                    != Launcher.CustomContentMode.DISABLED;
-                            mLauncher.getWorkspace().updatePageScrollForCustomPage(
-                                    customContentEnabled);
-                            mLauncher.setUpdateDynamicGrid();
-                            break;
-                        case 2:
                             mLauncher.onClickTransitionEffectButton(v, false);
                             break;
-                        case 3:
+                        case 2:
                             onIconLabelsBooleanChanged(v,
                                     SettingsProvider.SETTINGS_UI_HOMESCREEN_HIDE_ICON_LABELS,
                                     R.bool.preferences_interface_homescreen_hide_icon_labels_default);
                             mLauncher.setUpdateDynamicGrid();
                             break;
-                        case 4:
+                        case 3:
                             onSettingsBooleanChanged(v,
                                     SettingsProvider.SETTINGS_UI_HOMESCREEN_SCROLLING_WALLPAPER_SCROLL,
                                     R.bool.preferences_interface_homescreen_scrolling_wallpaper_scroll_default);
                             mLauncher.setUpdateDynamicGrid();
                             break;
-                        case 5:
-                            mLauncher.onClickDynamicGridSizeButton();
-                            break;
 
                     }
-                    break;
-                case OverviewSettingsPanel.DRAWER_SETTINGS_POSITION:
-                    switch (position) {
-                        case 0:
-                            mLauncher.onClickTransitionEffectButton(v, true);
-                            break;
-                        case 1:
-                            onClickSortButton();
-                            break;
-                        case 2:
-                            onIconLabelsBooleanChanged(v,
-                                    SettingsProvider.SETTINGS_UI_DRAWER_HIDE_ICON_LABELS,
-                                    R.bool.preferences_interface_drawer_hide_icon_labels_default);
-                            mLauncher.setUpdateDynamicGrid();
-                            break;
-			case 3:
-                            onSettingsBooleanChanged(v,
-                                    SettingsProvider.SETTINGS_UI_NO_DRAWER,
-                                    R.bool.preferences_settings_ui_no_drawer_default);
-                            mLauncher.setUpdateDynamicGrid();
-                            break;
-                    }
-                    break;
                 default:
                     switch (position) {
                         case 0:

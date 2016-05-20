@@ -42,7 +42,7 @@ LOCAL_PACKAGE_NAME := TekHome
 LOCAL_PRIVILEGED_MODULE := true
 #LOCAL_CERTIFICATE := shared
 
-LOCAL_AAPT_FLAGS += --rename-manifest-package com.cyanogenmod.trebuchet
+LOCAL_AAPT_FLAGS += --rename-manifest-package com.xos.tekhome
 
 LOCAL_OVERRIDES_PACKAGES := Launcher3
 
