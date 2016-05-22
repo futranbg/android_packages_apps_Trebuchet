@@ -65,7 +65,6 @@ public class OverviewSettingsPanel {
         mSettingsAdapter.setHeaders(headers);
         mSettingsAdapter.addPartition(false, true);
         mSettingsAdapter.addPartition(false, true);
-        mSettingsAdapter.addPartition(false, true);
         mSettingsAdapter.mPinnedHeaderCount = headers.length;
 
         mSettingsAdapter.changeCursor(HOME_SETTINGS_POSITION, createCursor(headers[0], mValues));

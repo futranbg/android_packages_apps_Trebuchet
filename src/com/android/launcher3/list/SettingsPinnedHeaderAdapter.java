@@ -274,7 +274,7 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             break;
 
                     }
-                default:
+                case OverviewSettingsPanel.APP_SETTINGS_POSITION:
                     switch (position) {
                         case 0:
                             onSettingsBooleanChanged(v,
@@ -289,6 +289,8 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             mLauncher.startActivity(intent);
                             break;
                     }
+	        default:
+			    break;
             }
 
             View defaultHome = mLauncher.findViewById(R.id.default_home_screen_panel);
