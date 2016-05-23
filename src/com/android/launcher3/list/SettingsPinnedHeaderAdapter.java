@@ -274,6 +274,7 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             break;
 
                     }
+			break;
                 case OverviewSettingsPanel.APP_SETTINGS_POSITION:
                     switch (position) {
                         case 0:
@@ -289,6 +290,7 @@ public class SettingsPinnedHeaderAdapter extends PinnedHeaderListAdapter {
                             mLauncher.startActivity(intent);
                             break;
                     }
+			break;
 	        default:
 			    break;
             }

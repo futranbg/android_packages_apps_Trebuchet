@@ -45,9 +45,9 @@
         launcher:screen="3"
         launcher:x="3"
         launcher:y="0" />
-    <favorite
+    <favorite  
         launcher:packageName="org.xos.camera"
-        launcher:className="com.android.camera.CameraActivity"
+        launcher:className="com.xos.camera.CameraActivity"
         launcher:container="-101"
         launcher:screen="4"
         launcher:x="4"
